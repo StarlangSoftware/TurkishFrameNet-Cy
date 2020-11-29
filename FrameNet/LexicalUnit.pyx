@@ -9,6 +9,9 @@ cdef class LexicalUnit:
         for element in root:
             self.frameElements.append(element.text)
 
+    cpdef str getSynSetId(self):
+        return self.synSetId
+
     cpdef int size(self):
         return len(self.frameElements)
 

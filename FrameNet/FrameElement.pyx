@@ -13,11 +13,12 @@ cdef class FrameElement(object):
         """
         if "$" in frameElement:
             self.__frameElementType = frameElement[0:frameElement.index("$")]
-            self.__id = frameElement[frameElement.index("$") + 1:]
+            self.__frame = frameElement[frameElement.index("$") + 1:frameElement.rindex("$")]
+            self.__id = frameElement[frameElement.rindex("$") + 1:]
         else:
             self.__frameElementType = "NONE"
 
-    cpdef initWithId(self, str frameElementType, str _id):
+    cpdef initWithId(self, str frameElementType, str frame, str _id):
         """
         Another constructor of FrameElement class which takes frameElementType and id as inputs and initializes corresponding
         attributes
@@ -30,6 +31,7 @@ cdef class FrameElement(object):
             Id of the argument
         """
         self.__frameElementType = frameElementType
+        self.__frame = frame
         self.__id = _id
 
     cpdef str getFrameElementType(self):
@@ -39,9 +41,20 @@ cdef class FrameElement(object):
         RETURNS
         -------
         str
-            argumentType.
+            frameElementType.
         """
         return self.__frameElementType
+
+    cpdef str getFrame(self):
+        """
+        Accessor for frame.
+
+        RETURNS
+        -------
+        str
+            frame.
+        """
+        return self.__frame
 
     cpdef str getId(self):
         """
@@ -67,4 +80,4 @@ cdef class FrameElement(object):
         if self.__frameElementType == "NONE":
             return self.__frameElementType
         else:
-            return self.__frameElementType + "$" + self.__id
+            return self.__frameElementType + "$" + self.__frame + "$" + self.__id
