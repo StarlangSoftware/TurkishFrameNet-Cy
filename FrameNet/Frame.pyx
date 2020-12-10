@@ -1,40 +1,30 @@
-from xml.dom.minidom import Element
-
-
 cdef class Frame:
 
-    def __init__(self, name: str, root: Element):
+    def __init__(self, name: str):
         self.lexicalUnits = []
+        self.frameElements = []
         self.name = name
-        for lexicalUnit in root:
-            self.lexicalUnits.append(LexicalUnit(lexicalUnit.attrib["ID"], lexicalUnit))
+
+    cpdef addLexicalUnit(self, str lexicalUnit):
+        self.lexicalUnits.append(lexicalUnit)
+
+    cpdef addFrameElement(self, str frameElement):
+        self.frameElements.append(frameElement)
 
     cpdef bint lexicalUnitExists(self, str synSetId):
-        cdef LexicalUnit lexicalUnit
-        for lexicalUnit in self.lexicalUnits:
-            if lexicalUnit.getSynSetId() == synSetId:
-                return True
-        return False
+        return synSetId in self.lexicalUnits
 
-    cpdef LexicalUnit getLexicalUnitWithId(self, str synSetId):
-        cdef LexicalUnit lexicalUnit
-        for lexicalUnit in self.lexicalUnits:
-            if lexicalUnit.getSynSetId() == synSetId:
-                return lexicalUnit
-        return None
-
-    cpdef removeLexicalUnit(self, str synSetId):
-        cdef LexicalUnit lexicalUnit
-        for lexicalUnit in self.lexicalUnits:
-            if lexicalUnit.getSynSetId() == synSetId:
-                self.lexicalUnits.remove(lexicalUnit)
-                break
-
-    cpdef LexicalUnit getLexicalUnit(self, int index):
+    cpdef str getLexicalUnit(self, int index):
         return self.lexicalUnits[index]
 
-    cpdef int size(self):
+    cpdef str getFrameElement(self, int index):
+        return self.frameElements[index]
+
+    cpdef int lexicalUnitSize(self):
         return len(self.lexicalUnits)
+
+    cpdef int frameElementSize(self):
+        return len(self.frameElements)
 
     cpdef str getName(self):
         return self.name
