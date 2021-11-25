@@ -1,12 +1,13 @@
 import os
 import xml.etree.ElementTree
 
+import pkg_resources
 
 cdef class FrameNet:
 
     def __init__(self):
         self.frames = []
-        root = xml.etree.ElementTree.parse("../framenet.xml").getroot()
+        root = xml.etree.ElementTree.parse(pkg_resources.resource_filename(__name__, 'data/framenet.xml')).getroot()
         for frameNode in root:
             frame = Frame(frameNode.attrib["NAME"])
             for childNode in frameNode:
