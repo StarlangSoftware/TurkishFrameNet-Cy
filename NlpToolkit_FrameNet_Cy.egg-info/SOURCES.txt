@@ -1,3 +1,4 @@
+LICENSE
 README.md
 setup.py
 FrameNet/Frame.c
@@ -10,6 +11,8 @@ FrameNet/FrameNet.c
 FrameNet/FrameNet.pxd
 FrameNet/FrameNet.pyx
 FrameNet/__init__.py
+FrameNet/data/__init__.py
+FrameNet/data/framenet.xml
 NlpToolkit_FrameNet_Cy.egg-info/PKG-INFO
 NlpToolkit_FrameNet_Cy.egg-info/SOURCES.txt
 NlpToolkit_FrameNet_Cy.egg-info/dependency_links.txt
