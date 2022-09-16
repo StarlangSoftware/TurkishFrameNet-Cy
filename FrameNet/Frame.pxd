@@ -1,8 +1,8 @@
 cdef class Frame:
 
-    cdef str name
-    cdef list lexicalUnits
-    cdef list frameElements
+    cdef str __name
+    cdef list __lexical_units
+    cdef list __frame_elements
 
     cpdef addLexicalUnit(self, str lexicalUnit)
     cpdef addFrameElement(self, str frameElement)

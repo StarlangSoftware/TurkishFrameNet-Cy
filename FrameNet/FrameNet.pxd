@@ -3,7 +3,7 @@ from FrameNet.Frame cimport Frame
 
 cdef class FrameNet:
 
-    cdef list frames
+    cdef list __frames
 
     cpdef bint lexicalUnitExists(self, str synSetId)
     cpdef list getFrames(self, str synSetId)

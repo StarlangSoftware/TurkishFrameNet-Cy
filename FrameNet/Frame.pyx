@@ -1,30 +1,33 @@
 cdef class Frame:
 
     def __init__(self, name: str):
-        self.lexicalUnits = []
-        self.frameElements = []
-        self.name = name
+        self.__lexical_units = []
+        self.__frame_elements = []
+        self.__name = name
 
     cpdef addLexicalUnit(self, str lexicalUnit):
-        self.lexicalUnits.append(lexicalUnit)
+        self.__lexical_units.append(lexicalUnit)
 
     cpdef addFrameElement(self, str frameElement):
-        self.frameElements.append(frameElement)
+        self.__frame_elements.append(frameElement)
 
     cpdef bint lexicalUnitExists(self, str synSetId):
-        return synSetId in self.lexicalUnits
+        return synSetId in self.__lexical_units
 
     cpdef str getLexicalUnit(self, int index):
-        return self.lexicalUnits[index]
+        return self.__lexical_units[index]
 
     cpdef str getFrameElement(self, int index):
-        return self.frameElements[index]
+        return self.__frame_elements[index]
 
     cpdef int lexicalUnitSize(self):
-        return len(self.lexicalUnits)
+        return len(self.__lexical_units)
 
     cpdef int frameElementSize(self):
-        return len(self.frameElements)
+        return len(self.__frame_elements)
 
     cpdef str getName(self):
-        return self.name
+        return self.__name
+
+    def __repr__(self):
+        return f"{self.__name} {self.__lexical_units} {self.__frame_elements}"

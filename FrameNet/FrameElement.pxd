@@ -1,6 +1,6 @@
 cdef class FrameElement(object):
 
-    cdef str __frameElementType
+    cdef str __frame_element_type
     cdef str __frame
     cdef str __id
 
