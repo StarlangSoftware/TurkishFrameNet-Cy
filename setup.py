@@ -9,7 +9,7 @@ setup(
     ext_modules=cythonize(["FrameNet/*.pyx"],
                           compiler_directives={'language_level': "3"}),
     name='NlpToolkit-FrameNet-Cy',
-    version='1.0.8',
+    version='1.0.9',
     packages=['FrameNet', 'FrameNet.data'],
     package_data={'FrameNet': ['*.pxd', '*.pyx', '*.c', '*.py'],
                   'FrameNet.data': ['*.xml']},

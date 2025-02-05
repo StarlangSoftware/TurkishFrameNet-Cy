@@ -1,6 +1,6 @@
 cdef class FrameElement(object):
 
-    def __init__(self, frameElement: str):
+    cpdef constructor1(self, str frameElement):
         """
         A constructor of FrameElement class which takes frameElement string which is in the form of frameElementType$id
         and parses this string into frameElementType and id. If the frameElement string does not contain '$' then the
@@ -18,10 +18,10 @@ cdef class FrameElement(object):
         else:
             self.__frame_element_type = "NONE"
 
-    cpdef initWithId(self,
-                     str frameElementType,
-                     str frame,
-                     str _id):
+    cpdef constructor2(self,
+                   str frameElementType,
+                   str frame,
+                   str _id):
         """
         Another constructor of FrameElement class which takes frameElementType and id as inputs and initializes corresponding
         attributes
@@ -38,6 +38,14 @@ cdef class FrameElement(object):
         self.__frame_element_type = frameElementType
         self.__frame = frame
         self.__id = _id
+
+    def __init__(self, frameElementOrType: str,
+                 frame: str = None,
+                 id: str = None):
+        if frame is None:
+            self.constructor1(frameElementOrType)
+        else:
+            self.constructor2(frameElementOrType, frame, id)
 
     cpdef str getFrameElementType(self):
         """
@@ -86,3 +94,6 @@ cdef class FrameElement(object):
             return self.__frame_element_type
         else:
             return self.__frame_element_type + "$" + self.__frame + "$" + self.__id
+
+    cpdef setId(self, str _id):
+        self.__id = _id
