@@ -8,8 +8,8 @@ from Cython.Build import cythonize
 setup(
     ext_modules=cythonize(["FrameNet/*.pyx"],
                           compiler_directives={'language_level': "3"}),
-    name='NlpToolkit-FrameNet-Cy',
-    version='1.0.9',
+    name='nlptoolkit-framenet-cy',
+    version='1.0.11',
     packages=['FrameNet', 'FrameNet.data'],
     package_data={'FrameNet': ['*.pxd', '*.pyx', '*.c', '*.py'],
                   'FrameNet.data': ['*.xml']},

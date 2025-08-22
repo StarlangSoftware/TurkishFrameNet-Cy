@@ -7,6 +7,9 @@ FrameNet/Frame.pyx
 FrameNet/FrameElement.c
 FrameNet/FrameElement.pxd
 FrameNet/FrameElement.pyx
+FrameNet/FrameElementList.c
+FrameNet/FrameElementList.pxd
+FrameNet/FrameElementList.pyx
 FrameNet/FrameNet.c
 FrameNet/FrameNet.pxd
 FrameNet/FrameNet.pyx
@@ -17,3 +20,7 @@ NlpToolkit_FrameNet_Cy.egg-info/PKG-INFO
 NlpToolkit_FrameNet_Cy.egg-info/SOURCES.txt
 NlpToolkit_FrameNet_Cy.egg-info/dependency_links.txt
 NlpToolkit_FrameNet_Cy.egg-info/top_level.txt
+nlptoolkit_framenet_cy.egg-info/PKG-INFO
+nlptoolkit_framenet_cy.egg-info/SOURCES.txt
+nlptoolkit_framenet_cy.egg-info/dependency_links.txt
+nlptoolkit_framenet_cy.egg-info/top_level.txt
