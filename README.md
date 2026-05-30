@@ -33,7 +33,7 @@ You can also see either [Python](https://github.com/starlangsoftware/TurkishFram
 
 ## Requirements
 
-* [Python 3.7 or higher](#python)
+* [Python 3.9 or higher](#python)
 * [Git](#git)
 
 ### Python 
@@ -50,7 +50,7 @@ Install the [latest version of Git](https://git-scm.com/book/en/v2/Getting-Start
 
 ## Pip Install
 
-	pip3 install NlpToolkit-Framenet-Cy
+	pip3.9 install NlpToolkit-Framenet-Cy
 
 ## Download Code
 
@@ -59,7 +59,7 @@ Use Git for cloning the code to your local or below line for Ubuntu:
 
 	git clone <your-fork-git-link>
 
-A directory called DataStructure will be created. Or you can use below link for exploring the code:
+A directory called FrameNet will be created. Or you can use below link for exploring the code:
 
 	git clone https://github.com/starlangsoftware/TurkishFrameNet-Cy.git
 
